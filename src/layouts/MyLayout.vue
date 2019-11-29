@@ -18,50 +18,29 @@
             <q-img src="statics/nubes.jpg" class="header-image absolute-top" />
         </q-header>
 
-        <q-drawer v-model="leftDrawerOpen" show-if-above :width="200" :breakpoint="400">
+        <q-drawer v-model="leftDrawerOpen" show-if-above :width="250" :breakpoint="600">
             <q-scroll-area
-                style="height: calc(100% - 150px); margin-top: 150px; border-right: 1px solid #ddd"
+                style="height: calc(100% - 185px); margin-top: 185px; border-right: 1px solid #ddd"
             >
                 <q-list padding>
                     <q-item clickable v-ripple>
                         <q-item-section avatar>
-                            <q-icon name="inbox" />
+                            <q-icon name="list" />
                         </q-item-section>
 
-                        <q-item-section>Inbox</q-item-section>
+                        <q-item-section>Todo</q-item-section>
                     </q-item>
-
-                    <q-item active clickable v-ripple>
-                        <q-item-section avatar>
-                            <q-icon name="star" />
-                        </q-item-section>
-
-                        <q-item-section>Star</q-item-section>
-                    </q-item>
-
                     <q-item clickable v-ripple>
                         <q-item-section avatar>
-                            <q-icon name="send" />
+                            <q-icon name="help" />
                         </q-item-section>
 
-                        <q-item-section>Send</q-item-section>
-                    </q-item>
-
-                    <q-item clickable v-ripple>
-                        <q-item-section avatar>
-                            <q-icon name="drafts" />
-                        </q-item-section>
-
-                        <q-item-section>Drafts</q-item-section>
+                        <q-item-section>Help</q-item-section>
                     </q-item>
                 </q-list>
             </q-scroll-area>
 
-            <q-img
-                class="absolute-top"
-                src="https://cdn.quasar.dev/img/material.png"
-                style="height: 150px"
-            >
+            <q-img class="absolute-top" src="statics/nubes.jpg" style="height: 185px">
                 <div class="absolute-bottom bg-transparent">
                     <q-avatar size="56px" class="q-mb-sm">
                         <img src="statics/avatar.png" />
