@@ -1,5 +1,21 @@
 <template>
     <q-page class="bg-grey-3 column">
+        <div class="row q-pa-sm- bg-primary">
+            <q-input
+                v-model="newTask"
+                @keyup.enter="addTask"
+                class="col"
+                filled
+                bg-color="white"
+                square
+                placeholder="Add task"
+                dense
+            >
+                <template v-slot:append>
+                    <q-btn round dense flat icon="add" @click="addTask" />
+                </template>
+            </q-input>
+        </div>
         <q-list class="bg-white" separator bordered>
             <q-item
                 v-for="(task, index) in tasks"
@@ -34,20 +50,8 @@
 export default {
     data() {
         return {
-            tasks: [
-                {
-                    title: "Get bananas",
-                    done: false
-                },
-                {
-                    title: "Eat bananas",
-                    done: false
-                },
-                {
-                    title: "Poo bananas",
-                    done: false
-                }
-            ]
+            newTask: "",
+            tasks: []
         };
     },
     methods: {
@@ -64,6 +68,11 @@ export default {
                     this.tasks.splice(index, 1);
                     this.$q.notify("Task deleted");
                 });
+        },
+        addTask() {
+            console.log("adding task");
+            this.tasks.push({ title: this.newTask, done: false });
+            this.newTask = "";
         }
     }
 };
