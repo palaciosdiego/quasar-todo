@@ -31,6 +31,19 @@
                 <q-item-section>
                     <q-item-label>{{ task.title }}</q-item-label>
                 </q-item-section>
+                <q-item-section side>
+                    <div class="row">
+                        <div class="column justify-center">
+                            <q-icon name="event" size="18px" class="q-mr-xs" />
+                        </div>
+                        <div class="column">
+                            <q-item-label class="row justify-end" caption>{{ task.dueDate }}</q-item-label>
+                            <q-item-label class="row justify-end" caption>
+                                <small>{{ task.dueTime }}</small>
+                            </q-item-label>
+                        </div>
+                    </div>
+                </q-item-section>
                 <q-item-section v-if="task.done" side>
                     <q-btn
                         @click.stop="deleteTask(index)"
@@ -75,7 +88,12 @@ export default {
         },
         addTask() {
             console.log("adding task");
-            this.tasks.push({ title: this.newTask, done: false });
+            this.tasks.push({
+                title: this.newTask,
+                done: false,
+                dueDate: "2019/05/12",
+                dueTime: "18:30"
+            });
             this.newTask = "";
         }
     }
