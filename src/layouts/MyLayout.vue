@@ -17,25 +17,30 @@
             </div>
             <q-img src="statics/nubes.jpg" class="header-image absolute-top" />
         </q-header>
-
+        <q-footer elevated>
+            <q-tabs>
+                <q-route-tab to="/" icon="list" label="Todo" />
+                <q-route-tab to="/settings" icon="settings" label="Settings" />
+            </q-tabs>
+        </q-footer>
         <q-drawer v-model="leftDrawerOpen" show-if-above :width="250" :breakpoint="600">
             <q-scroll-area
                 style="height: calc(100% - 185px); margin-top: 185px; border-right: 1px solid #ddd"
             >
                 <q-list padding>
-                    <q-item to="/" exact clickable v-ripple>
+                    <q-item
+                        v-for="nav in navs"
+                        :key="nav.label"
+                        :to="nav.to"
+                        exact
+                        clickable
+                        v-ripple
+                    >
                         <q-item-section avatar>
-                            <q-icon name="list" />
+                            <q-icon :name="nav.icon" />
                         </q-item-section>
 
-                        <q-item-section>Todo</q-item-section>
-                    </q-item>
-                    <q-item to="/help" exact clickable v-ripple>
-                        <q-item-section avatar>
-                            <q-icon name="help" />
-                        </q-item-section>
-
-                        <q-item-section>Help</q-item-section>
+                        <q-item-section>{{nav.label}}</q-item-section>
                     </q-item>
                 </q-list>
             </q-scroll-area>
@@ -66,7 +71,24 @@ export default {
 
     data() {
         return {
-            leftDrawerOpen: false
+            leftDrawerOpen: false,
+            navs: [
+                {
+                    label: "Todo",
+                    icon: "list",
+                    to: "/"
+                },
+                {
+                    label: "Settings",
+                    icon: "settings",
+                    to: "/settings"
+                },
+                {
+                    label: "Help",
+                    icon: "help",
+                    to: "/help"
+                }
+            ]
         };
     },
     computed: {
