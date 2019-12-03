@@ -1,15 +1,8 @@
 <template>
-    <q-layout view="lHh Lpr lFf">
+    <q-layout view="lHh lpR fFf">
         <q-header>
             <q-toolbar>
-                <q-btn
-                    flat
-                    dense
-                    round
-                    @click="leftDrawerOpen = !leftDrawerOpen"
-                    icon="menu"
-                    aria-label="Menu"
-                />
+                <q-toolbar-title class="absolute-center">Awesome todo</q-toolbar-title>
             </q-toolbar>
             <div class="q-px-lg q-pt-xl q-mb-md">
                 <div class="text-h3">Todo</div>
@@ -105,5 +98,10 @@ export default {
     z-index: -1;
     opacity: 0.2;
     filter: grayscale(100%);
+}
+@media screen and (min-width: 600px) {
+    .q-footer {
+        display: none;
+    }
 }
 </style>
