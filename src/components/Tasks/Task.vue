@@ -1,12 +1,12 @@
 <template>
     <q-item
-        @click="task.done = !task.done"
-        :class="{ 'done bg-blue-1' : task.done }"
+        @click="updateTask({id:id,updates:{ completed: !task.completed}})"
+        :class="{ 'completed bg-blue-1' : task.completed }"
         clickable
         v-ripple
     >
         <q-item-section avatar>
-            <q-checkbox v-model="task.done" class="no-pointer-events" color="primary" />
+            <q-checkbox v-model="task.completed" class="no-pointer-events" color="primary" />
         </q-item-section>
         <q-item-section>
             <q-item-label>{{ task.title }}</q-item-label>
@@ -40,8 +40,12 @@
 </template>
 
 <script>
+import { mapActions } from "vuex";
 export default {
-    props: ["task", "id"]
+    props: ["task", "id"],
+    methods: {
+        ...mapActions("tasks", ["updateTask"])
+    }
 };
 </script>
 

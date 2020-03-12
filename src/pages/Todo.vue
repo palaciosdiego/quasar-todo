@@ -79,7 +79,7 @@ export default {
 };
 </script>
 <style lang="scss">
-.done {
+.completed {
     .q-item__label {
         text-decoration: line-through;
         color: #bbb;
