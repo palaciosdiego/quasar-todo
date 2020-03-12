@@ -87,12 +87,13 @@ export default {
                 });
         },
         addTask() {
-            console.log("adding task");
+            let today = new Date();
+
             this.tasks.push({
                 title: this.newTask,
                 done: false,
-                dueDate: "2019/05/12",
-                dueTime: "18:30"
+                dueDate: today.toLocaleDateString(),
+                dueTime: today.toLocaleTimeString()
             });
             this.newTask = "";
         }
