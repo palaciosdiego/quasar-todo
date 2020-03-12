@@ -56,6 +56,7 @@
                 </q-item-section>
             </q-item>
         </q-list>
+
         <div v-if="!tasks.length" class="no-tasks absolute-center">
             <q-icon name="check" size="100px" color="primary" />
             <div class="text-h5 text-center text-primary">No tasks</div>
@@ -64,6 +65,7 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
 export default {
     data() {
         return {
@@ -71,6 +73,11 @@ export default {
             tasks: []
         };
     },
+    /*
+    computed: {
+        ...mapGetters("tasks", ["tasks"])
+    },
+    */
     methods: {
         deleteTask(index) {
             this.$q

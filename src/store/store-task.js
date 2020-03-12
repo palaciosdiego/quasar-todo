@@ -25,7 +25,11 @@ const state = {
 };
 const mutations = {};
 const actions = {};
-const getters = {};
+const getters = {
+  tasks: state => {
+    return state.tasks;
+  }
+};
 
 export default {
   namespace: true,
