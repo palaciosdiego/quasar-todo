@@ -1,5 +1,6 @@
 <template>
     <q-page class="bg-grey-3 column">
+        <!--
         <div class="row q-pa-sm- bg-primary">
             <q-input
                 v-model="newTask"
@@ -16,10 +17,11 @@
                 </template>
             </q-input>
         </div>
+        -->
         <q-list class="bg-white" separator bordered>
             <q-item
-                v-for="(task, index) in tasks"
-                :key="task.title"
+                v-for="(task,key) in tasks"
+                :key="key"
                 @click="task.done = !task.done"
                 :class="{ 'done bg-blue-1' : task.done }"
                 clickable
@@ -44,6 +46,7 @@
                         </div>
                     </div>
                 </q-item-section>
+                <!--
                 <q-item-section v-if="task.done" side>
                     <q-btn
                         @click.stop="deleteTask(index)"
@@ -54,30 +57,34 @@
                         icon="delete"
                     />
                 </q-item-section>
+                -->
             </q-item>
         </q-list>
-
+        <!--
         <div v-if="!tasks.length" class="no-tasks absolute-center">
             <q-icon name="check" size="100px" color="primary" />
             <div class="text-h5 text-center text-primary">No tasks</div>
         </div>
+        -->
     </q-page>
 </template>
 
 <script>
 import { mapGetters } from "vuex";
 export default {
+    /*
     data() {
         return {
             newTask: "",
             tasks: []
         };
     },
-    /*
+    */
+
     computed: {
         ...mapGetters("tasks", ["tasks"])
-    },
-    */
+    }
+    /*
     methods: {
         deleteTask(index) {
             this.$q
@@ -105,6 +112,7 @@ export default {
             this.newTask = "";
         }
     }
+    */
 };
 </script>
 <style lang="scss">
